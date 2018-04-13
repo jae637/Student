@@ -1,0 +1,16 @@
+package chap7;
+import java.util.*;
+
+class Student{
+		int id;
+		int score;
+		String name;
+		public Student(int id,int score, String name) {
+			this.id= id;
+			this.score= score;
+			this.name= name;
+		}
+}
+public class HashMapStudentEx {
+
+}

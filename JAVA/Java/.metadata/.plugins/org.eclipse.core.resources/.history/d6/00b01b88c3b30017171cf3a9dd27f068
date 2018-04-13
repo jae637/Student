@@ -1,0 +1,19 @@
+package chap7;
+
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Set;
+
+public class Student{
+	int id;
+	String tel;
+	public Student(int id, String tel) {
+		this.id=id;
+		this.tel=tel;
+	}
+}
+
+
+public class HashMapStudentEx_Student {
+	
+}

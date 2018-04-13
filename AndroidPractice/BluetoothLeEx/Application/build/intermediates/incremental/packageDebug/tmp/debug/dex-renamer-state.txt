@@ -1,0 +1,4 @@
+#Wed Apr 04 19:02:43 KST 2018
+base.0=C\:\\Users\\Jaehyung\\Desktop\\AndroidPractice\\BluetoothLeEx\\Application\\build\\intermediates\\transforms\\dexMerger\\debug\\0
+path.0=classes.dex
+renamed.0=classes.dex

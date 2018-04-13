@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+</head>
+<body>
+	<form action = /start2/Post.jsp METHOD=POST>
+		이름 : <input type = text name=NAME> <br>
+		주민등록번호 : <input type = number name=NUMBER>-<input type = password name=NUMBER2> <br>
+		아이디 : <input type = text name=ID> <br>
+		비밀번호 : <input type = password name=SECRET> <br>
+		비밀번호확인 : <input type = password name=SECRETCUR> <br>
+		이메일 : <input type = text name=EMAIL>@<input type = text name = DOMAIN>
+		<select NAME=DOMAIN>
+			<option>직접 입력</option>
+			<option value="naver.con">네이버</option>
+			<option value="daum.net">다음</option> 
+		</select><br>
+		핸드폰 번호 : <input type = number name=FIRST>-<input type = number name=SECOND>-<input type = number name=TRIRD> <br>
+		직업 : 
+		<select name=JOB>
+			<option>회사원</option>
+			<option>학생</option>
+			<option>주부</option>
+		</select><br>
+		메일/sns 정보 수신 
+		<input type = radio name= YESORNO value=1>수신
+		<input type = radio name= YESORNO value=0>수신거부
+		<br>
+		관심분야
+		<input type = radio name= HOBBY value="생두">생두
+		<input type = radio name= HOBBY value="원두">원두
+		<input type = radio name= HOBBY value="로스팅">로스팅
+		<input type = radio name= HOBBY value="핸드드립">핸드드립
+		<input type = radio name= HOBBY value="에스프레소">에스프레소
+		<input type = radio name= HOBBY value="창업">창업
+		<br>
+		<INPUT Type=submit value='회원가입'>
+		<INPUT type=reset value='취소'>
+	</form>
+	<br><br>
+	
+
+</body>
+</html>

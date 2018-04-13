@@ -1,0 +1,2 @@
+﻿  source.c
+c:\users\jaehyung\desktop\project1\project1\source.c(3): fatal error C1083: 포함 파일을 열 수 없습니다. 'netdb.h': No such file or directory

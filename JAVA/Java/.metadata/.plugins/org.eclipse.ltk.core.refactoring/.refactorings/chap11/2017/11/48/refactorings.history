@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;chap11.TextAreadEx&apos; to &apos;TextAreaEx&apos;&#x0D;&#x0A;- Original project: &apos;chap11&apos;&#x0D;&#x0A;- Original element: &apos;chap11.TextAreadEx&apos;&#x0D;&#x0A;- Renamed element: &apos;chap11.TextAreaEx&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;TextAreadEx&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;chap11{TextAreadEx.java[TextAreadEx" matchStrategy="1" name="TextAreaEx" qualified="false" references="true" similarDeclarations="false" stamp="1511921031060" textual="false" version="1.0"/>
+</session>

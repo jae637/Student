@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>회원 가입</title>
+</head>
+<body>
+	<form action = /DBSignUp/Post.jsp METHOD=POST>
+		아이디 : <input type = text name=ID> <br>
+		비밀번호 : <input type = password name=SECRET> <br>
+		비밀번호확인 : <input type = password name=SECRETCUR> <br>
+		주소 : <input type = text name = ADDRESS><br>
+		이메일 : <input type = text name=EMAIL>@<input type = text name = DOMAIN><br>
+		핸드폰 번호 : <input type = number name=FIRST>-<input type = number name=SECOND>-<input type = number name=TRIRD> <br>
+		관심분야
+		<input type = radio name= HOBBY value="생두">생두
+		<input type = radio name= HOBBY value="원두">원두
+		<input type = radio name= HOBBY value="로스팅">로스팅
+		<input type = radio name= HOBBY value="핸드드립">핸드드립
+		<input type = radio name= HOBBY value="에스프레소">에스프레소
+		<input type = radio name= HOBBY value="창업">창업
+		<br>
+		<INPUT Type=submit value='회원가입'>
+		<INPUT type=reset value='취소'>
+	</form>
+	<br><br>
+	
+
+</body>
+</html>

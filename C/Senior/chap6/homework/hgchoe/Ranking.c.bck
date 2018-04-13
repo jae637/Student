@@ -1,0 +1,61 @@
+#include <stdio.h>
+#include <string.h>
+
+struct rank_list {
+	char name[20];
+	int  score;
+};
+
+int main(void)
+{
+	FILE * fp;
+	char   input_name[20], tmp_name[20];
+	int    input_score, tmp_score;
+	int    rank_len;
+	struct rank_list Rank_List[10];
+
+	int i;
+
+	// Read Rank File
+	i = 0;
+	fp = fopen("Rank.bin", "a+b");
+	while( fscanf(fp, "%d\t%s\n", &Rank_List[i].score, Rank_List[i].name) != EOF ) {
+		i++;
+		rank_len = i;
+	}
+	fclose(fp);
+
+	// Input User Name and Score
+	printf("name  : ");
+	scanf ("%s", input_name  );
+	printf("score : ");
+	scanf ("%d", &input_score);
+
+	// Sort New Score
+	for(i=0;i<rank_len;i++) {
+		if(Rank_List[i].score < input_score) {
+			tmp_score = Rank_List[i].score;
+			strcpy(tmp_name, Rank_List[i].name);
+			Rank_List[i].score = input_score;
+			strcpy(Rank_List[i].name, input_name);
+			input_score = tmp_score;
+			strcpy(input_name, tmp_name);
+		}
+	}
+	if(i < 10) {
+		Rank_List[i].score = input_score;
+		strcpy(Rank_List[i].name, input_name);
+	}
+
+	// Write included New Score
+	fp = fopen("Rank.bin", "wb");
+	printf("Rank\t\tName\t\tScore\n");
+	for(i=0;i<=rank_len;i++) {
+		if( i == 10 ) { break; }
+		fprintf(fp, "%d\t%s\n", Rank_List[i].score, Rank_List[i].name);
+		printf("%d\t\t%s\t\t%d\n", i+1, Rank_List[i].name, Rank_List[i].score);
+	}
+
+	fclose(fp);
+	return 1;
+}

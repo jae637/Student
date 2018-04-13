@@ -1,0 +1,7 @@
+#Internal package file, do not edit.
+#Wed Apr 04 19:02:43 KST 2018
+0.baseType=DIRECTORY
+0.base=C\:\\Users\\Jaehyung\\Desktop\\AndroidPractice\\BluetoothLeEx\\Application\\build\\intermediates\\transforms\\dexMerger\\debug\\0
+0.path=classes.dex
+0.set=DEX
+count=1

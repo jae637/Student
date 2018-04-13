@@ -1,0 +1,25 @@
+package chap7;
+import java.util.ArrayList;
+import java.util.Scanner;
+import java.util.*;
+
+public class ArrayListEx2 {
+	public static void main(String[] args) {
+			ArrayList<String> a= new ArrayList<String>();
+			
+			Scanner scanner = new Scanner(System.in);
+			String s = scanner.next();
+			a.add(s);
+			
+			for(int =0; i<a.size();i++) {
+				String name = a.get(i);
+				System.out.print(name+" ");
+			}
+			int longstIndex = 0;
+			for(int i=1;i<a.size();i++) {
+				if(a.get(longstIndex).length()<a.get(i).length())
+					longstIndex=i;
+			}
+			System.out.println("\n가장 긴 이름은 : " + a.get(longstIndex));
+	}
+}
