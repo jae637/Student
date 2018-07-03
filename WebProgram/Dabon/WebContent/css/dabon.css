@@ -23,6 +23,11 @@ body {
 	width: 760px;
 	margin: 0 auto;
 }
+#contents{
+	width: 520px;
+	margin: 0;
+	font-family: 'Nanum Gothic';
+}
 
 a:visited {
 	color: black;
@@ -57,6 +62,10 @@ td>h6 {
 	line-height: 2.4;
 }
 
+#contents>h6 {
+	line-height: 2.4;
+}
+
 ul.mylist, ol.mylist {
 	list-style: none;
 	margin: 10px;
@@ -80,7 +89,7 @@ table>table {
 	display: inline-block;
 }
 
-.img-responsive {
+#img-responsive {
 	display: block;
 	max-width: 100%;
 	height: auto;

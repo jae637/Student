@@ -9,9 +9,25 @@
 <link rel="stylesheet" href="css/bootstrap-theme.min.css">
 <link rel="stylesheet" href="css/dabon.css">
 </head>
+
+<script type="text/javascript">
+	//<![CDATA[
+	function calcHeight() {
+		//find the height of the internal page
+
+		var the_height = document.getElementById('the_iframe').contentWindow.document.body.scrollHeight;
+
+		//change the height of the iframe
+		document.getElementById('the_iframe').height = the_height + 20;
+
+		//document.getElementById('the_iframe').scrolling = "no";
+		document.getElementById('the_iframe').style.overflow = "hidden";
+	}
+	//
+</script>
+
 <body>
 	<!-- 크기를 반드시 높이 480인 것만 작성해 주실것-->
-	
 	<div id="top">
 		<div class="row">
 			<a class="text-left" href="index.html" style="cursor: pointer"
@@ -39,20 +55,20 @@
 						class="dropdown-toggle" data-toggle="dropdown" role="button"
 						aria-haspopup="true" aria-expanded="false">COMPANY</a>
 						<ul class="dropdown-menu">
-							<li><a href="company.html">Greeting</a></li>
-							<li><a href="history.html">Histroy</a></li>
-							<li><a href="organization.html">Organization</a></li>
-							<li><a href="license.html">License</a></li>
-							<li><a href="location.html">Location</a></li>
+							<li><a href="company.html?contents=1">Greeting</a></li>
+							<li><a href="company.html?contents=2">Histroy</a></li>
+							<li><a href="company.html?contents=3">Organization</a></li>
+							<li><a href="company.html?contents=4">License</a></li>
+							<li><a href="company.html?contents=5">Location</a></li>
 						</ul></li>
 					<li class="activedown"><a href="#" class="dropdown-toggle"
 						data-toggle="dropdown" role="button" aria-haspopup="true"
 						aria-expanded="false">PRODUCT</a>
 						<ul class="dropdown-menu">
-							<li><a href="containersercher.html">컨테이너 검색기 시스템</a></li>
-							<li><a href="product3.html">휴대물품 검색기 시스템</a></li>
-							<li><a href="product4.html">금속 탐지 시스템</a></li>
-							<li><a href="product5.html">폭발물 탐지 시스템</a></li>
+							<li><a href="product.html?contents=1">컨테이너 검색기 시스템</a></li>
+							<li><a href="product.html?contents=2">휴대물품 검색기 시스템</a></li>
+							<li><a href="product.html?contents=3">금속 탐지 시스템</a></li>
+							<li><a href="product.html?contents=4">폭발물 탐지 시스템</a></li>
 						</ul></li>
 					<li><a href="notice.html" aria-expanded="false">NOTICE</a></li>
 				</ul>
@@ -66,54 +82,47 @@
 			<tr>
 				<td rowspan="2" width="202" align="left" valign="top">
 					<h1 class="lm_tit">
-						<img src="images/company.PNG" width="162" height="auto"
+						<img src="images/product.png" width="162" height="auto"
 							alt="DabonSE0" />
 					</h1> <br>
 					<ul class="mylist" style="font-size: 10pt;">
-						<li class="mylist"><a href="company.html">Greeting</a></li>
-						<li class="mylist"><a href="history.html">History</a></li>
-						<li class="mylist"><a href="organization.html">Organization</a></li>
-						<li class="mylist"><a href="license.html">License</a></li>
-						<li class="mylist"><a href="location.html">Location</a></li>
+						<li><a href="product.html?contents=1">컨테이너 검색기 시스템</a></li>
+						<li><a href="product.html?contents=2">휴대물품 검색기 시스템</a></li>
+						<li><a href="product.html?contents=3">금속 탐지 시스템</a></li>
+						<li><a href="product.html?contents=4">폭발물 탐지 시스템</a></li>
 					</ul>
 				</td>
-				<td valign="top" id="contents">
-					<div style="text-align: top";>
-						<h2>History</h2>
-						<h2>회사 연혁</h2>
-					</div>
-				</td>
-			</tr>
-			<tr valign="top">
-				<td valign="top">
-					<table style="border-right: 0px; border-left: 0px" width="480px"
-						border="" valign="top">
-						<tr>
-							<td align="center" valign="top" style="padding: 7px 10px;">
-								2016년</td>
-							<td align="left" valign="middle"
-								style="padding: 5px 10px 5px 10px;">(주) 코어헥사 설립</td>
-						</tr>
-						<tr>
-							<td align="center" valign="top" style="padding: 7px 10px;">
-								2017년</td>
-							<td align="left" valign="middle"
-								style="padding: 5px 10px 5px 10px;">중소기업 확인서</td>
-						</tr>
-						<tr>
-							<td align="center" valign="top" style="padding: 7px 10px;">
-								2018년</td>
-							<td align="left" valign="middle"
-								style="padding: 5px 10px 5px 10px;">주식회사 다본 에스이</td>
-						</tr>
-					</table>
-			</td>
+				<script>
+					var getParameters = function(paramName) {
+						var contents;
+
+						var url = location.href;
+
+						var parameters = (url.slice(url.indexOf('?') + 1,
+								url.length)).split('&');
+
+						for (var i = 0; i < parameters.length; i++) {
+							var varName = parameters[i].split('=')[0];
+							if (varName.toUpperCase() == paramName
+									.toUpperCase()) {
+								returnValue = parameters[i].split('=')[1];
+								return decodeURIComponent(returnValue);
+							}
+						}
+						//  width=\"520px\" height=\"1400px\"
+					}
+					document
+							.write("<td valign=\"top\"><iframe id=\"the_iframe\" onload=\"calcHeight();\"style=\"overflow-x:hidden; overflow:auto; min-width:520px; min-height:500px;\" frameborder=\"0\" scrolling=\"no\"  src=\"productcontents"
+									+ getParameters('contents')
+									+ ".html\"></iframe></td>");
+				</script>
 			</tr>
 		</table>
 		<br>
 	</div>
 
-	<footer style="background-color: #000000; color: #ffffff; width:760px;">
+	<footer
+		style="background-color: #000000; color: #ffffff; width: 760px;">
 		<div class="container-fluid">
 			<br>
 			<div class="row">
@@ -121,7 +130,9 @@
 				<div class="col-sm-4 col-xs-6" style="text-align: center;">
 					<h4>COMPANY</h4>
 					<h6>Name : DabonSE</h6>
-					<h6>Place : 경기도 시흥시 산기대학로 237 <br>한국산업기술대학교 산학융합관 345호</h6>
+					<h6>
+						Place : 경기도 시흥시 산기대학로 237 <br>한국산업기술대학교 산학융합관 345호
+					</h6>
 				</div>
 				<div class="col-sm-4 col-xs-6" style="text-align: center;">
 					<h4>CONTECT</h4>

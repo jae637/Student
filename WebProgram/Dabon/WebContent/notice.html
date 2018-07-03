@@ -9,6 +9,22 @@
 <link rel="stylesheet" href="css/bootstrap-theme.min.css">
 <link rel="stylesheet" href="css/dabon.css">
 </head>
+<script type="text/javascript">
+	//<![CDATA[
+	function calcHeight() {
+		//find the height of the internal page
+
+		var the_height = document.getElementById('the_iframe').contentWindow.document.body.scrollHeight;
+
+		//change the height of the iframe
+		document.getElementById('the_iframe').height = the_height + 20;
+
+		//document.getElementById('the_iframe').scrolling = "no";
+		document.getElementById('the_iframe').style.overflow = "hidden";
+	}
+	//
+</script>
+
 <body>
 	<!-- 크기를 반드시 높이 480인 것만 작성해 주실것-->
 	<div id="top">
@@ -38,20 +54,20 @@
 						class="dropdown-toggle" data-toggle="dropdown" role="button"
 						aria-haspopup="true" aria-expanded="false">COMPANY</a>
 						<ul class="dropdown-menu">
-							<li><a href="company.html">Greeting</a></li>
-							<li><a href="history.html">Histroy</a></li>
-							<li><a href="organization.html">Organization</a></li>
-							<li><a href="license.html">License</a></li>
-							<li><a href="location.html">Location</a></li>
+							<li><a href="company.html?contents=1">Greeting</a></li>
+							<li><a href="company.html?contents=2">Histroy</a></li>
+							<li><a href="company.html?contents=3">Organization</a></li>
+							<li><a href="company.html?contents=4">License</a></li>
+							<li><a href="company.html?contents=5">Location</a></li>
 						</ul></li>
 					<li class="activedown"><a href="#" class="dropdown-toggle"
 						data-toggle="dropdown" role="button" aria-haspopup="true"
 						aria-expanded="false">PRODUCT</a>
 						<ul class="dropdown-menu">
-							<li><a href="containersercher.html">컨테이너 검색기 시스템</a></li>
-							<li><a href="product3.html">휴대물품 검색기 시스템</a></li>
-							<li><a href="product4.html">금속 탐지 시스템</a></li>
-							<li><a href="product5.html">폭발물 탐지 시스템</a></li>
+							<li><a href="product.html?contents=1">컨테이너 검색기 시스템</a></li>
+							<li><a href="product.html?contents=2">휴대물품 검색기 시스템</a></li>
+							<li><a href="product.html?contents=3">금속 탐지 시스템</a></li>
+							<li><a href="product.html?contents=4">폭발물 탐지 시스템</a></li>
 						</ul></li>
 					<li><a href="notice.html" aria-expanded="false">NOTICE</a></li>
 				</ul>
@@ -60,30 +76,40 @@
 	</nav>
 
 	<!-- 메인 화면 내용 -->
-	<div class="container-fluid" style="min-height: 100%;">
+	<div class="container-fluid" style="min-height: 65vh;">
 		<table>
 			<tr>
 				<td rowspan="2" width="202" align="left" valign="top">
 					<h1 class="lm_tit">
-						<img src="images/notice.PNG" width="162" height="auto"
+						<img src="images/notice.png" width="162" height="auto"
 							alt="DabonSE0" />
 					</h1> <br>
 					<ul class="mylist" style="font-size: 10pt;">
 						<li class="mylist"><a href="notice.html">Notice</a></li>
 					</ul>
 				</td>
-				<td valign="top" id="contents">
-					<div style="text-align: top";>
-						<h2>Notice</h2>
-						<h3>공지사항</h3>
-					</div>
-				</td>
-			</tr>
-			<tr valign="top">
-				<td valign="top">
-					<form action="noticepage.jsp" accept-charset="utf-8"
-						name="person_info" method="get"></form>
-				</td>
+				<script>
+					var getParameters = function(paramName) {
+						var contents;
+
+						var url = location.href;
+
+						var parameters = (url.slice(url.indexOf('?') + 1,
+								url.length)).split('&');
+
+						for (var i = 0; i < parameters.length; i++) {
+							var varName = parameters[i].split('=')[0];
+							if (varName.toUpperCase() == paramName
+									.toUpperCase()) {
+								returnValue = parameters[i].split('=')[1];
+								return decodeURIComponent(returnValue);
+							}
+						}
+						//  width=\"520px\" height=\"1400px\"
+					}
+					document
+							.write("<td valign=\"top\"><iframe id=\"the_iframe\" onload=\"calcHeight();\"style=\"overflow-x:hidden; overflow:auto; min-width:520px; min-height:500px;\" frameborder=\"0\" scrolling=\"no\"  src=\"noticepage.jsp\"></iframe></td>");
+				</script>
 			</tr>
 		</table>
 		<br>
