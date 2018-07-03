@@ -4,6 +4,11 @@
 	font-family: 'Nanum Gothic';
 }
 
+.dropdown:hover .dropdown-menu {
+    display: block;
+    margin-top: 0;
+}
+
 .jumbotron {
 	text-shadow: black 0.03cm 0.03cm 0.03cm;
 	background-color: white;
