@@ -12,16 +12,52 @@
 <link rel="stylesheet" href="css/bootstrap-theme.min.css">
 <link rel="stylesheet" href="css/dabon.css">
 </head>
-<style>
-body {
-	width: 100vh;
-	margin: 0;
-}
-</style>
-<body>
-	<h2>Notice</h2>
-	<h3>공지사항</h3>
-	<h1>준비중입니다.</h1>
-	<h1>잠시만 기다려주세요</h1>
+<body id=contents>
+	<table border="1" summary="게시판 목록">
+		<colgroup>
+			<col width="70" />
+			<col width="500" />
+			<col width="100" />
+			<col width="150" />
+			<col width="90" />
+		</colgroup>
+		<thead>
+			<tr>
+				<th style="text-align: center">번호</th>
+				<th style="text-align: center">제목</th>
+				<th style="text-align: center">작성자</th>
+				<th style="text-align: center">등록 일시</th>
+				<th style="text-align: center">조회수</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td align="center">1</td>
+				<td><a href="boardView.jsp">동해물과 백두산이 마르고 닳도록 하...</a></td>
+				<td align="center">김연석</td>
+				<td align="center">2013.06.24</td>
+				<td align="center">10</td>
+			</tr>
+		</tbody>
+		<tfoot>
+			<tr>
+				<td align="center" colspan="5">1</td>
+			</tr>
+		</tfoot>
+	</table>
+	<p>
+		<input type="button" value="목록" onclick="goUrl('index.html');" />
+		<input type="button" value="글쓰기"
+			onclick="goUrl('boardWriteForm.jsp');" />
+	<form name="searchForm" action="" method="get">
+		<select name="searchType">
+			<option value="ALL">전체검색</option>
+			<option value="SUBJECT">제목</option>
+			<option value="WRITER">작성자</option>
+			<option value="CONTENTS">내용</option>
+		</select> <input type="text" name="searchText" value="" /> <input
+			type="submit" value="검색" />
+	</form>
+	</p>
 </body>
 </html>

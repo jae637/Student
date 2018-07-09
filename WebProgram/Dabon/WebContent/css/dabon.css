@@ -20,16 +20,16 @@
 	position: abolute;
 	background-color: white top: 0;
 	left: 0;
-	height: 420px;
-	width: 760px;
+	height: 620px;
+	width: 960px;
 }
 
 body {
-	width: 760px;
+	width: 960px;
 	margin: 0 auto;
 }
 #contents{
-	width: 520px;
+	width: 720px;
 	margin: 0;
 	font-family: 'Nanum Gothic';
 }
@@ -82,6 +82,10 @@ ul.mylist, ol.mylist {
 table>table {
 	width: 100%;
 	border: 1px solid #444444;
+}
+
+#bottom{
+	
 }
 
 #logo {

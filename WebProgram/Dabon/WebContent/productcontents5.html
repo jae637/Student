@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width" , initial-scale="1">
+<title>Dabon SE</title>
+<link rel="stylesheet" href="css/bootstrap.css">
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="css/dabon.css">
+</head>
+<script type="text/javascript">
+	function calcHeight() {
+		//find the height of the internal page
+
+		var the_height = document.getElementById('the_iframe').contentWindow.document.body.scrollHeight;
+
+		//change the height of the iframe
+		document.getElementById('the_iframe').height = the_height + 20;
+
+		//document.getElementById('the_iframe').scrolling = "no";
+		document.getElementById('the_iframe').style.overflow = "hidden";
+	}
+</script>
+<script type="text/javascript">
+	var getParameters = function(paramName) {
+		var contents;
+
+		var url = parent.document.location.href;
+
+		var parameters = (url.slice(url.indexOf('?') + 1, url.length))
+				.split('&');
+
+		for (var i = 0; i < parameters.length; i++) {
+			var varName = parameters[i].split('=')[0];
+			if (varName.toUpperCase() == paramName.toUpperCase()) {
+				returnValue = parameters[i].split('=')[1];
+				return decodeURIComponent(returnValue);
+			}
+		}
+	}
+</script>
+<body id="contents">
+	<h2>제품 소개</h2>
+	<h3>&nbsp</h3>
+	<script>
+		if (getParameters('product') == null) {
+
+		} else
+			document
+					.write("<td valign=\"top\"><iframe id=\"the_iframe\" onload=\"calcHeight();\"style=\"overflow-x:hidden; overflow:auto; min-width:720px; min-height:500px;\" frameborder=\"0\" scrolling=\"no\"  src=\"productexam"
+							+ getParameters('product')
+							+ ".html\"></iframe></td>");
+	</script>
+	<table>
+		<colgroup>
+			<col width="250" />
+			<col width="250" />
+			<col width="250" />
+			<col width="250" />
+		</colgroup>
+		<tr>
+			<td><a href="javascript:parent.changePage(1)"><img
+					src="images/EI-5536.png" width="100%" /></a></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td><a href="javascript:parent.changePage(1)"><img
+					src="images/EI-5536.png" width="100%" /></a></td>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+	</table>
+</body>
+</html>
