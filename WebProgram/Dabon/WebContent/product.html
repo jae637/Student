@@ -8,6 +8,7 @@
 <link rel="stylesheet" href="css/bootstrap.min.css">
 <link rel="stylesheet" href="css/bootstrap-theme.min.css">
 <link rel="stylesheet" href="css/dabon.css">
+<link rel="shortcut icon" type="image/x-icon" href="images/dabon.ico" />
 </head>
 
 <script type="text/javascript">
@@ -25,8 +26,12 @@
 	//
 </script>
 <script>
-	function changePage(n){
-		document.location.href = "./product.html?contents=5&product="+n;
+	function changePage(n) {
+		if (n == 0) {
+			document.location.href= "./product.html?contents=5"
+		} else {
+			document.location.href = "./product.html?contents=5&product=" + n;
+		}
 	}
 </script>
 <body>
@@ -131,7 +136,7 @@
 				<!-- col-sm-3 여기서 3은 간격 -->
 				<div class="col-sm-4 col-xs-6" style="text-align: center;">
 					<h4>COMPANY</h4>
-					<h6>Name : DabonSE</h6>
+					<h6>Name : 다본 에스이(DabonSE)</h6>
 					<h6>
 						Place : 경기도 시흥시 산기대학로 237 <br>한국산업기술대학교 산학융합관 345호
 					</h6>

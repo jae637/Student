@@ -42,6 +42,7 @@
 		<tfoot>
 			<tr>
 				<td align="center" colspan="5">1</td>
+				
 			</tr>
 		</tfoot>
 	</table>
@@ -59,5 +60,6 @@
 			type="submit" value="°Ë»ö" />
 	</form>
 	</p>
+	
 </body>
 </html>
