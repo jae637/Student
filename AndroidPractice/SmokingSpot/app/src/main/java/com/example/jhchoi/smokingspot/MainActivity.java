@@ -1,5 +1,6 @@
 package com.example.jhchoi.smokingspot;
 
+import android.content.Intent;
 import android.graphics.Canvas;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
@@ -25,11 +26,22 @@ import com.nhn.android.mapviewer.overlay.NMapOverlayManager;
 import com.nhn.android.mapviewer.overlay.NMapPOIdataOverlay;
 import com.nhn.android.mapviewer.overlay.NMapOverlayManager.OnCalloutOverlayListener;
 
+import org.w3c.dom.Text;
+
 import java.util.Map;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MainActivity extends NMapActivity implements  OnMapStateChangeListener,OnCalloutOverlayListener{
 
     int markerId = NMapPOIflagType.PIN;
+
+    static final String URL = "http://www.smokingspot.co.kr";
+    RetrofitRepo repo;
 
     ViewGroup mapLayout;
     NMapView mMapView;
@@ -48,6 +60,7 @@ public class MainActivity extends NMapActivity implements  OnMapStateChangeListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Mapinit();
+
     }
 
     void Mapinit() {
@@ -64,20 +77,23 @@ public class MainActivity extends NMapActivity implements  OnMapStateChangeListe
         mMapLocationManager.setStartTimeout(500);
         mMapLocationManager.setUpdateFrequency(0,0);
         mMapLocationManager.setStartAccuracy(100);
+        //네이버 맵 세팅 부분
         mMapView.setClientId("hGmPWCJSvV2yASNzXKjb"); // 클라이언트 아이디 값 설정
         mMapView.setClickable(true);
         mMapView.setOnMapStateChangeListener(this);
         mMapView.setEnabled(true);
         mMapView.setFocusable(true);
         mMapView.setFocusableInTouchMode(true);
+        //중심지 세팅 부분
         mMapController = mMapView.getMapController();
-
-
         //오버레이 리소스 관리객체 할당
         mMapViewerResourceProvider = new NMapViewerResourceProvider(this);
         //오버레이 관리자 추가
         mOverlayManager = new NMapOverlayManager(this, mMapView, mMapViewerResourceProvider);
+        //마크 객체 생성
+        poiData = new NMapPOIdata(0, mMapViewerResourceProvider);
 
+        //GPS 사용해 위치 잡음
         if (gps.isGetLocation()) {
             me.latitude = gps.getLatitude();
             me.longitude = gps.getLongitude();
@@ -87,31 +103,38 @@ public class MainActivity extends NMapActivity implements  OnMapStateChangeListe
             gps.showSettingsAlert();
         }
 
-        poiData = new NMapPOIdata(0, mMapViewerResourceProvider);
-        POIsetting(poiData);
-
-        NMapPOIdataOverlay poiDataOverlay = mOverlayManager.createPOIdataOverlay(poiData, null);
-        mOverlayManager.setOnCalloutOverlayListener((OnCalloutOverlayListener) this);
-        poiDataOverlay.showAllPOIdata(30); //0
-
-        //현재위치 오버레이 띄우는 부분
-        mMapMyLocationOverlay = mOverlayManager.createMyLocationOverlay(mMapLocationManager, null);
-        mMapMyLocationOverlay.refresh();
+        //레트로핏이 스레드로 돌아가기 때문에 마크업 부분을 함수 안에다 생성 (데이터를 받아와 핀을 찍는다)
+        index();
 
         //지도 추가
-        mapLayout.addView(mMapView);
+
     }
 
     void POIsetting(NMapPOIdata poiData){
+        //이제 핀 찍는 시작 함수
         poiData.beginPOIdata(0);
+
         //여기안에 데이터가 들어가면 됨
         //경도 위도 순
-        poiData.addPOIitem( 126.7341531,37.338842, "산융", markerId, 0);
-        poiData.addPOIitem( 126.734940,37.339652, "E동", markerId, 0);
-        poiData.addPOIitem(126.734057,37.340684 , "종합관", markerId, 0);
-        poiData.addPOIitem(126.732458,37.339899, "비지니스 센터", markerId, 0);
-        //여기까지
+        //레트로핏 사이즈 만큼 핀을 찍음.
+        for(int i=0;i<repo.location.size();i++) {
+            Log.e(""+repo.location.size(),repo.location.get(i).lat);
+            //스트링으로 받아오기 때문에 타입 변형이 필요함
+            poiData.addPOIitem(Double.parseDouble(repo.location.get(i).lng),Double.parseDouble(repo.location.get(i).lat),repo.location.get(i).name,markerId,Integer.parseInt(repo.location.get(i).id));
+        }
+        //여기까지 핀 찍음
         poiData.endPOIdata();
+        //마크 객체 생성된거 띄우는 부분
+        NMapPOIdataOverlay poiDataOverlay = mOverlayManager.createPOIdataOverlay(poiData, null);
+        mOverlayManager.setOnCalloutOverlayListener((OnCalloutOverlayListener) this);
+        poiDataOverlay.showAllPOIdata(30); //0
+        //여기까지 생성
+
+        //현재위치 오버레이 띄우는 부분
+        mMapMyLocationOverlay = mOverlayManager.createMyLocationOverlay(mMapLocationManager, null);
+        //? 이거 왜넣었지?
+        ///mMapMyLocationOverlay.refresh();
+        mapLayout.addView(mMapView);
     }
 
     //------------------------------------------------------------------
@@ -175,5 +198,32 @@ public class MainActivity extends NMapActivity implements  OnMapStateChangeListe
     public NMapCalloutOverlay onCreateCalloutOverlay(NMapOverlay nMapOverlay, NMapOverlayItem nMapOverlayItem, Rect rect) {
         Action(nMapOverlayItem.getTitle());
         return new NMapCalloutBasicOverlay(nMapOverlay, nMapOverlayItem, rect);
+    }
+
+    public void index() {
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(URL)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        RetrofitService retrofitService = retrofit.create(RetrofitService.class);
+        Call<RetrofitRepo> call = retrofitService.getFirst("ashtray");
+
+        //주소를 보여주는 로그
+        Log.e(call.request().toString(),call.request().toString());
+        call.enqueue(new Callback<RetrofitRepo>() {
+            @Override
+            public void onResponse(Call<RetrofitRepo> call, Response<RetrofitRepo> response) {
+                repo = response.body();
+                Log.e(repo.location.get(0).lat,repo.location.get(0).lng);
+                POIsetting(poiData);
+                //여기다 넣으란 거잖아
+            }
+
+            @Override
+            public void onFailure(Call<RetrofitRepo> call, Throwable t) {
+
+            }
+        });
     }
 }

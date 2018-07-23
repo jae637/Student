@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Ch6list</string>
+    <string name="text">You are not select any color</string>
+    <string name="Red">It\'s Red</string>
+</resources>
