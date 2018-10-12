@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="chap9.NullContainerEx"/>
 <fullyQualifiedTypeName name="chap9.ListenerMouseEx"/>
 <fullyQualifiedTypeName name="java.awt.event.MouseEvent"/>
 <fullyQualifiedTypeName name="java.awt.event.KeyAdapter"/>
@@ -44,7 +43,6 @@
 <fullyQualifiedTypeName name="jiyoung.Novel"/>
 <fullyQualifiedTypeName name="jiyoung.Magazine"/>
 <fullyQualifiedTypeName name="jiyoung.Poem"/>
-<fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="java.io.FileInputStream"/>
 <fullyQualifiedTypeName name="java.io.FileOutputStream"/>
 <fullyQualifiedTypeName name="java.io.BufferedOutputStream"/>
@@ -59,5 +57,7 @@
 <fullyQualifiedTypeName name="chap9.ContentPaneEx"/>
 <fullyQualifiedTypeName name="java.awt.event.MouseListener"/>
 <fullyQualifiedTypeName name="java.awt.event.MouseAdapter"/>
+<fullyQualifiedTypeName name="java.lang.reflect.Array"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="java.lang.System"/>
 </qualifiedTypeNameHistroy>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width" , initial-scale="1">
+<title>Dabon SE</title>
+<link rel="stylesheet" href="css/bootstrap.css">
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="css/dabon.css">
+<link rel="shortcut icon" type="image/x-icon" href="images/dabon.ico" />
+</head>
+
+<script type="text/javascript">
+	//<![CDATA[
+	function calcHeight() {
+		//find the height of the internal page
+		var the_height = document.getElementById('the_iframe').contentWindow.document.body.scrollHeight;
+
+		//change the height of the iframe
+		document.getElementById('the_iframe').height = the_height + 20;
+
+		//document.getElementById('the_iframe').scrolling = "no";
+		document.getElementById('the_iframe').style.overflow = "hidden";
+	}
+	//
+</script>
+<script>
+	function changePage(n) {
+		if (n == 0) {
+			document.location.href = "./business.html?contents=5"
+		} else {
+			document.location.href = "./business.html?contents=5&product=" + n;
+		}
+	}
+</script>
+<body id="contain">
+	<!-- 크기를 반드시 높이 480인 것만 작성해 주실것-->
+	<div id="top">
+		<table width="960" height="98">
+			<tr>
+				<td align="left">
+					<div class="row">
+						<a class="text-left" href="index.html" style="cursor: pointer"
+							style="text-decoration : none">
+							<div class="col-sm-3">
+								<!-- 이미지 넣을 부분 왼쪽 상단 -->
+								<img src="images/Mark.PNG" width="auto" height="98"
+									alt="DabonSE0" />
+							</div>
+						</a>
+					</div>
+				</td>
+				<td align="right" valign="bottom" style="padding: 8px;"><a
+					href="http://hiworks.dabonse.com"><font size="1pt">직원용</font></a></td>
+			</tr>
+		</table>
+	</div>
+	<!-- 네비게이션 바 -->
+	<nav class="navbar navbar-default">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse"
+					data-target="#myNavbar">
+					<span class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+			</div>
+			<div class="collapse navbar-collapse" id="myNavbar">
+				<ul class="nav navbar-nav">
+					<li class="dropdown" id="list"><a
+						href="company.html?contents=1">COMPANY</a>
+						<ul class="dropdown-menu">
+							<li><a href="company.html?contents=1">Greeting</a></li>
+							<li><a href="company.html?contents=2">Histroy</a></li>
+							<li><a href="company.html?contents=3">Organization</a></li>
+							<li><a href="company.html?contents=4">License</a></li>
+							<li><a href="company.html?contents=5">Location</a></li>
+						</ul></li>
+					<li class="dropdown"><a href="business.html?contents=1">BUSINESS</a>
+						<ul class="dropdown-menu">
+							<li><a href="business.html?contents=1">컨테이너 검색기 시스템</a></li>
+							<li><a href="business.html?contents=2">휴대물품 검색기 시스템</a></li>
+							<li><a href="business.html?contents=3">금속 탐지 시스템</a></li>
+							<li><a href="business.html?contents=4">폭발물 탐지 시스템</a></li>
+						</ul></li>
+					<li><a href="product.html?contents=5" aria-expanded="false">PRODUCT</a></li>
+					<li><a href="notice.html" aria-expanded="false">NOTICE</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+	<!-- 메인 화면 내용 -->
+	<div class="container-fluid" id="wrapper">
+		<table>
+			<tr>
+				<td rowspan="2" width="202" align="left" valign="top">
+					<h1 class="lm_tit">
+						<img src="images/business.png" width="162" height="auto"
+							alt="DabonSE0" />
+					</h1> <br>
+					<ul class="mylist" style="font-size: 10pt;">
+						<li><a href="business.html?contents=1">컨테이너 검색기 시스템</a></li>
+						<li><a href="business.html?contents=2">휴대물품 검색기 시스템</a></li>
+						<li><a href="business.html?contents=3">금속 탐지 시스템</a></li>
+						<li><a href="business.html?contents=4">폭발물 탐지 시스템</a></li>
+					</ul>
+				</td>
+				<td valign="top"><script>
+					var getParameters = function(paramName) {
+						var contents;
+
+						var url = location.href;
+
+						var parameters = (url.slice(url.indexOf('?') + 1,
+								url.length)).split('&');
+
+						for (var i = 0; i < parameters.length; i++) {
+							var varName = parameters[i].split('=')[0];
+							if (varName.toUpperCase() == paramName
+									.toUpperCase()) {
+								returnValue = parameters[i].split('=')[1];
+								return decodeURIComponent(returnValue);
+							}
+						}
+						//  height=\"1400px\"
+					}
+					document
+							.write("<iframe id=\"the_iframe\" onload=\"calcHeight();\"style=\"overflow-x:hidden; overflow:auto; min-width:720px; min-height:500px;\" frameborder=\"0\" scrolling=\"no\"  src=\"productcontents"
+									+ getParameters('contents')
+									+ ".html\"></iframe>");
+				</script></td>
+			</tr>
+		</table>
+		<br>
+	</div>
+
+	<footer id="footer"
+		style="background-color: #000000; color: #ffffff; width: 960px;">
+		<div class="container-fluid">
+			<br>
+			<div class="row">
+				<!-- col-sm-3 여기서 3은 간격 -->
+				<div class="col-sm-4 col-xs-6" style="text-align: center;">
+					<h4>COMPANY</h4>
+					<h6>Name : 다본 에스이(DabonSE)</h6>
+					<h6>
+						Place : 경기도 시흥시 산기대학로 237 <br>한국산업기술대학교 산학융합관 345호
+					</h6>
+				</div>
+				<div class="col-sm-4 col-xs-6" style="text-align: center;">
+					<h4>CONTECT</h4>
+					<h6>TEL:031-8041-1592</h6>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+	<script src="js/bootstrap.js"></script>
+	<script>
+		
+	</script>
+</body>
+</html>

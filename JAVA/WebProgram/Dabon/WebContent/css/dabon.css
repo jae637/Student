@@ -1,0 +1,125 @@
+@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+
+* {
+	font-family: 'Nanum Gothic';
+}
+
+.dropdown:hover .dropdown-menu {
+	display: block;
+	margin-top: 0;
+}
+
+.jumbotron {
+	text-shadow: black 0.03cm 0.03cm 0.03cm;
+	background-color: white;
+	backgroud-size: cover;
+	color: black;
+}
+
+.carousel-inner>.item>img {
+	position: abolute;
+	background-color: white top: 0;
+	left: 0;
+	height: 480px;
+	width: 960px;
+}
+
+body {
+	width: 960px;
+	height: 100%;
+	margin: 0 auto;
+}
+
+#contents {
+	width: 720px;
+	margin: 0;
+	font-family: 'Nanum Gothic';
+}
+
+a:visited {
+	color: black;
+	text-decoration: none;
+}
+
+a:link {
+	color: black;
+	text-decoration: none;
+}
+
+a:hover {
+	color: gray;
+	text-decoration: none;
+}
+
+li {
+	line-height: 2.0;
+}
+
+td>h6 {
+	line-height: 2.4;
+}
+
+#contents>h6 {
+	line-height: 2.4;
+}
+
+ul.mylist, ol.mylist {
+	list-style: none;
+	margin: 10px;
+	padding: 0px;
+	max-width: 242px;
+	width: 100%;
+}
+
+table>table {
+	width: 100%;
+	border: 1px solid #444444;
+}
+
+#bottom {
+	
+}
+
+#logo {
+	width: 380;
+	height: 98;
+}
+
+.img {
+	position: relative;
+	display: inline-block;
+}
+
+#img-responsive {
+	display: block;
+	max-width: 100%;
+	height: auto;
+	margin: auto;
+	padding: auto;
+	opacity: 0.7;
+}
+
+.text-box {
+	position: absolute;
+	text-align: center;
+	text-valign: center;
+	width: 100%;
+	height: auto;
+	margin: auto;
+	top: 30%;
+	bottom: 30%;
+	right: 0;
+	left: 0;
+}
+
+/* #footer {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: auto;
+} */
+
+#wrapper {
+	position: relative;
+	min-height: 100%;
+}
