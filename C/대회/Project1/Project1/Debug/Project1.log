@@ -1,0 +1,4 @@
+﻿  A.c
+c:\users\jaehyung\desktop\allprograming\study\c\대회\project1\project1\a.c(12): warning C4013: 'change'이(가) 정의되지 않았습니다. extern은 int형을 반환하는 것으로 간주합니다.
+  Project1.vcxproj -> C:\Users\Jaehyung\Desktop\AllPrograming\Study\C\대회\Project1\Debug\Project1.exe
+  Project1.vcxproj -> C:\Users\Jaehyung\Desktop\AllPrograming\Study\C\대회\Project1\Debug\Project1.pdb (Partial PDB)
