@@ -12,7 +12,6 @@
 <fullyQualifiedTypeName name="chap9.innerClassListener"/>
 <fullyQualifiedTypeName name="chap9.AnonymousClassListener"/>
 <fullyQualifiedTypeName name="jiyoung.NewDays"/>
-<fullyQualifiedTypeName name="java.util.Scanner"/>
 <fullyQualifiedTypeName name="jiyoung.Interface"/>
 <fullyQualifiedTypeName name="jiyoung.Temporary"/>
 <fullyQualifiedTypeName name="jiyoung.Regular"/>
@@ -60,4 +59,5 @@
 <fullyQualifiedTypeName name="java.lang.reflect.Array"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="java.lang.System"/>
+<fullyQualifiedTypeName name="java.util.Scanner"/>
 </qualifiedTypeNameHistroy>

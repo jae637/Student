@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Ch6list</string>
+    <string name="text">아무색도 선택하지 않았습니다.</string>
+    <string name="Red">빨강색 입니다.</string>
+</resources>
