@@ -3,6 +3,7 @@ package chap8;
 import java.io.BufferedOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.OutputStream;
 import java.util.Scanner;
 
 public class BufferedIOEx {

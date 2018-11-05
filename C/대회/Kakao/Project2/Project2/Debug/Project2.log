@@ -1,0 +1,5 @@
+﻿  main2.c
+c:\users\jaehyung\desktop\allprograming\study\c\대회\kakao\project2\project2\main2.c(4): warning C4101: 'temp' :참조되지 않은 지역 변수입니다.
+c:\users\jaehyung\desktop\allprograming\study\c\대회\kakao\project2\project2\main2.c(12): warning C4013: 'malloc'이(가) 정의되지 않았습니다. extern은 int형을 반환하는 것으로 간주합니다.
+c:\users\jaehyung\desktop\allprograming\study\c\대회\kakao\project2\project2\main2.c(16): warning C4013: 'system'이(가) 정의되지 않았습니다. extern은 int형을 반환하는 것으로 간주합니다.
+  Project2.vcxproj -> C:\Users\Jaehyung\Desktop\AllPrograming\Study\C\대회\Kakao\Project2\Debug\Project2.exe

@@ -1,0 +1,7 @@
+﻿  main.c
+c:\users\jaehyung\desktop\allprograming\study\c\대회\woowa\project1\project1\main.c(10): warning C4013: 'malloc'이(가) 정의되지 않았습니다. extern은 int형을 반환하는 것으로 간주합니다.
+c:\users\jaehyung\desktop\allprograming\study\c\대회\woowa\project1\project1\main.c(10): warning C4047: '초기화 중': 'Node *'의 간접 참조 수준이 'int'과(와) 다릅니다.
+c:\users\jaehyung\desktop\allprograming\study\c\대회\woowa\project1\project1\main.c(23): warning C4013: 'system'이(가) 정의되지 않았습니다. extern은 int형을 반환하는 것으로 간주합니다.
+c:\users\jaehyung\desktop\allprograming\study\c\대회\woowa\project1\project1\main.c(17): warning C4047: '초기화 중': 'Node **'의 간접 참조 수준이 'int'과(와) 다릅니다.
+c:\users\jaehyung\desktop\allprograming\study\c\대회\woowa\project1\project1\main.c(18): warning C4047: '초기화 중': 'Node *'의 간접 참조 수준이 'int'과(와) 다릅니다.
+  Project1.vcxproj -> C:\Users\Jaehyung\Desktop\AllPrograming\Study\C\대회\Woowa\Project1\Debug\Project1.exe
